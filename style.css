@@ -10,7 +10,10 @@
         -apple-system,
         sans-serif;
 }
-
+body {
+    background-color: #d8d5d5;
+    padding: 10px;
+}
 .container {
     max-width: 500px;
     margin: 100px auto;
@@ -23,13 +26,12 @@ h2 {
     font-weight: 700;
     color: #444552;
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 20px rgba(163, 85, 243, 0.4);
     letter-spacing: 0.5px;
 }
 
 .calculator {
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: #9da5c73d;
+    border: 1px solid #9da5c7;
     padding: 10px 40px;
     border-radius: 8px;
 }
@@ -49,6 +51,12 @@ h2 {
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #ccc;
+}
+
+.inputBox input:focus {
+    outline: none;
+    border: 1px solid gray;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.5);
 }
 
 button {
@@ -74,6 +82,7 @@ button {
     color: #12086e;
     background-color: #d5e7f74d;
     border: 1px solid #ccc;
+    text-transform: capitalize;
     border-radius: 4px;
 }
 #result p {
@@ -83,7 +92,7 @@ button {
     padding: 0.2rem;
 }
 .error {
-    color: #f7092a;
+    color: #e42006;
 }
 
 @media (max-width: 480px) {
@@ -91,6 +100,7 @@ button {
         max-width: 380px;
         margin: 100px auto;
     }
+
     .calculator {
         padding: 10px 20px;
     }
