@@ -72,11 +72,16 @@ button {
     margin-top: 20px;
     padding: 10px;
     color: #12086e;
-    background-color: #95c4eb4d;
+    background-color: #d5e7f74d;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
+#result p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem;
+}
 .error {
     color: #f7092a;
 }

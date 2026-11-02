@@ -1,19 +1,18 @@
-function calculateLoan() {
-    /**
-     *
-     * M = P * ( r * (1+r)^n ) / ( (1+r)^n  - 1 )
-     *
-     * M = Total monthly payment
-     * P = Principal loan amount (the total money you borrowed)
-     * r = Monthly interest rate (Annual interest rate divided by 12 )
-     * n = Total number of months (Loan term in years multiplied by 12.
-     *
-     */
+/**
+ *
+ * M = P * ( r * (1+r)^n ) / ( (1+r)^n  - 1 )
+ *
+ * M = Total monthly payment
+ * P = Principal loan amount (the total money you borrowed)
+ * r = Monthly interest rate (Annual interest rate divided by 12 )
+ * n = Total number of months (Loan term in years multiplied by 12.
+ *
+ */
 
+function calculateLoan() {
+       
     const loanAmount = parseFloat(document.querySelector('#loanAmount').value);
-    const interestRate = parseFloat(
-        document.querySelector('#interestRate').value,
-    );
+    const interestRate = parseFloat(document.querySelector('#interestRate').value);
     const loanTerm = parseFloat(document.querySelector('#loanTerm').value);
 
     if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm)) {
@@ -26,13 +25,11 @@ function calculateLoan() {
     const n = loanTerm;
     const t = Math.sqrt(1 + r, n);
     const monthlyPayments = (P * (r * t)) / (t - 1);
-    
+
     const totalPayment = monthlyPayments * n;
-    const totalInterest = (monthlyPayments * n) - loanAmount;
+    const totalInterest = monthlyPayments * n - loanAmount;
 
-
-
-    displayResult(totalPayment, totalInterest);
+    displayResult(monthlyPayments, totalPayment, totalInterest);
 }
 
 function showError(msg) {
@@ -40,11 +37,12 @@ function showError(msg) {
     resultDiv.innerHTML = ` <p class="error">${msg}</p> `;
 }
 
-function displayResult(monthlyPayments, totalInterest) {
+function displayResult(monthlyPayments, totalPayment, totalInterest) {
     const resultDiv = document.querySelector('#result');
     resultDiv.innerHTML = ` 
-              <p><strong>Monthly Payment : ${monthlyPayments.toFixed(2)}</strong></p>
-              <p><strong>Total Interest : ${totalInterest.toFixed(2)}</strong></p> 
+              <p><strong>Monthly Payment : </strong> ₹ ${monthlyPayments.toFixed(2)} </p>
+              <p><strong>Total Payment : </strong> ₹ ${totalPayment.toFixed(2)}</p>
+              <p><strong>Total Interest : </strong> ₹ ${totalInterest.toFixed(2)}</p> 
         `;
 }
 
